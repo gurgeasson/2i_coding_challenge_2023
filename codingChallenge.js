@@ -22,18 +22,18 @@ X is a positive integer / aim for success
 // solution
 function countingSumPairs(arrayOfIntegers, X) {
     let count = 0;   // initialise a counter to keep track of pairs
-    let usedElemets = [];
+    let usedElemetsPosition = [];
     for (let i = 0; i < arrayOfIntegers.length; i++){   // iterate through the array one by one
         for (let j = i + 1; j < arrayOfIntegers.length; j++){   // for each element iterate through all remaining elements and test if sum === X
             if (arrayOfIntegers[i] + arrayOfIntegers[j] === X) {   // if sum equals X --->
                 // console.log('this works');   // quick test line   
-                if (!usedElemets.includes(arrayOfIntegers[j])) {   // check if element has been used before
+                if (!usedElemetsPosition.includes(j)) {   // check if element has been used before
                     count++;                                       // ---> increment variable count
                 }
-                usedElemets.push(arrayOfIntegers[j]);   // add element to used list
+                usedElemetsPosition.push(j);   // add element to used list
             };
         }
-    } 
+    }
 return (count)   // return the solution
 }
 
@@ -44,6 +44,7 @@ console.log(countingSumPairs([10, 7, 2, 4, 9, 3, 6, 8, 5, 1], 10));   // expecte
 console.log(countingSumPairs([3, 4, 5, 6], 1));   // expected answer [0]
 console.log(countingSumPairs([0, 15, 32, 2000, 15000], 15));   // expected answer [1]
 console.log(countingSumPairs([1, 1, 10, 32, 41], 42));   // expected answer [2]
+console.log(countingSumPairs([1, 1, 10, 32, 41, 41], 42));   // expected answer [3]
 
 
 
